@@ -1,7 +1,7 @@
 import type { CheckoutItem } from "./Thrift Happens";
 
 interface CheckoutCardProps extends CheckoutItem {
- // handleRemoveFromCart(cartItem: CheckoutItem): void;
+  // handleRemoveFromCart(cartItem: CheckoutItem): void;
 }
 
 // Displays one saved cart snapshot. The default export is imported as CartCard

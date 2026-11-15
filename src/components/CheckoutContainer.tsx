@@ -1,7 +1,7 @@
 import { type CheckoutItem } from "./Thrift Happens";
 import CheckoutCard from "./CheckoutCard";
 
-// Receives saved cart entries from FruitsApp; it does not own or update cart state.
+// Receives saved cart entries from Thrift Happens; it does not own or update cart state.
 interface CartContainerProps {
   cartData: CheckoutItem[];
   //handleRemoveFromCart(cartItem: CheckoutItem): void;

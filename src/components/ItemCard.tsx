@@ -11,7 +11,7 @@ interface ProductCardProps extends ClothingProduct {
 }
 
 // Presentational component: render the supplied values and report interactions.
-// Props are inputs; calling a callback asks FruitsApp to supply updated values.
+// Props are inputs; calling a callback asks Thrift Happens to supply updated values.
 export default function ItemCard({
   name,
   price,
@@ -54,8 +54,7 @@ export default function ItemCard({
         Total Price: {(productInfo.itemQuantity * productInfo.price).toFixed(2)}
         $
       </p>
-      {/* Build a snapshot only when clicked. A fresh UUID distinguishes this
-          cart entry from both the fruit ID and previous entries of the same fruit.
+      {/* Build a snapshot only when clicked. A shared id will merge instances of a given product together
           Keep price and total numeric for calculations; cart components format
           their own displays. Later selection changes do not alter this snapshot. */}
       <button

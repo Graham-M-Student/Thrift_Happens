@@ -24,7 +24,6 @@ export interface ProductInfo {
 
 /** Snapshot of a selection at the moment Add to Cart is clicked. */
 export interface CheckoutItem {
-  // A new UUID identifies each cart entry, including repeated adds of one fruit.
   id: number;
   image: string;
   name: string;
@@ -34,7 +33,7 @@ export interface CheckoutItem {
   total: number;
 }
 
-export default function Thrift_Happens({ data }: ClothingData){
+export default function Thrift_Happens({ data }: ClothingData) {
   // The generic specifies an array of state objects. The lazy initializer derives
   // starting values when mounting rather than rebuilding them on every render.
   // Later changes to data do not reset this state; this example uses a fixed catalog.
@@ -78,7 +77,7 @@ export default function Thrift_Happens({ data }: ClothingData){
     );
   }
 
-  // Append a separate entry for every click, rather than merging matching fruits.
+  // Merges repeat instances of a given clothing iten.
   // Functional updates preserve earlier additions when React batches updates.
   function handleAddToCart(cartItem: CheckoutItem) {
     setCartItems((prevCart) => {
@@ -111,22 +110,21 @@ export default function Thrift_Happens({ data }: ClothingData){
       return [...prevCart];
     });*/
 
-    // Pass values and domain callbacks instead of exposing the array setter.
-    // React renders fresh props after updates. ProductContainer forwards callbacks;
-    // CartContainer only needs the saved entries to render cards and their sum.
-    return (
-      <div>
-        <ItemContainer
-          data={products}
-          productInfo={productInfo}
-          handleAdjustQuantity={handleAdjustQuantity}
-          handleAddToCart={handleAddToCart}
-        />
-        <CheckoutContainer
-          cartData={cartItems}
-          //handleRemoveFromCart={handleRemoveFromCart}
-        />
-      </div>
-    );
-  }
-
+  // Pass values and domain callbacks instead of exposing the array setter.
+  // React renders fresh props after updates. ProductContainer forwards callbacks;
+  // CartContainer only needs the saved entries to render cards and their sum.
+  return (
+    <div>
+      <ItemContainer
+        data={products}
+        productInfo={productInfo}
+        handleAdjustQuantity={handleAdjustQuantity}
+        handleAddToCart={handleAddToCart}
+      />
+      <CheckoutContainer
+        cartData={cartItems}
+        //handleRemoveFromCart={handleRemoveFromCart}
+      />
+    </div>
+  );
+}

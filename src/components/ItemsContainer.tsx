@@ -4,7 +4,7 @@ import type { CheckoutItem } from "./Thrift Happens";
 import ItemCard from "./ItemCard";
 
 // This component arranges cards and connects catalog items to their current state.
-// It forwards actions to FruitsApp rather than implementing state updates itself.
+// It forwards actions to Thrift Happens rather than implementing state updates itself.
 interface ProductContainerProps {
   data: ClothingProduct[];
   productInfo: ProductInfo[];
@@ -30,7 +30,7 @@ export default function ProductContainer({
         if (!info) return null;
 
         // key lets React track each card across list renders; it is not a card prop.
-        // {...fruit} forwards catalog fields. The callbacks capture this fruit's ID,
+        // {...clothes} forwards catalog fields. The callbacks capture this item's ID,
         // so the card only supplies a quantity change or selected price.
         // Add to Cart is forwarded unchanged: the card constructs its snapshot.
         return (
