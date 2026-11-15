@@ -4,12 +4,12 @@ import CheckoutCard from "./CheckoutCard";
 // Receives saved cart entries from FruitsApp; it does not own or update cart state.
 interface CartContainerProps {
   cartData: CheckoutItem[];
-  handleRemoveFromCart(cartItem: CheckoutItem): void;
+  //handleRemoveFromCart(cartItem: CheckoutItem): void;
 }
 // Render every separately added entry and calculate the combined cart total.
 export default function CartContainer({
   cartData,
-  handleRemoveFromCart,
+  //handleRemoveFromCart,
 }: CartContainerProps) {
   return (
     <div className="CartContainer">
@@ -17,13 +17,9 @@ export default function CartContainer({
           spreading item passes its snapshot fields as the card's props. */}
       {cartData.map((item) => (
         <CheckoutCard
-          handleRemoveFromCart={handleRemoveFromCart}
-          id={0}
-          image={""}
-          name={""}
-          quantity={0}
-          price={0}
-          total={0}
+          key={item.id}
+          {...item}
+          //handleRemoveFromCart={handleRemoveFromCart}
         />
       ))}
       {/* reduce receives the running sum (acc) first and the current item second.

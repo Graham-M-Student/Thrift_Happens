@@ -34,7 +34,7 @@ export interface CheckoutItem {
   total: number;
 }
 
-export default function Thrift_Happens({ data }: ClothingData) {
+export default function Thrift_Happens({ data }: ClothingData){
   // The generic specifies an array of state objects. The lazy initializer derives
   // starting values when mounting rather than rebuilding them on every render.
   // Later changes to data do not reset this state; this example uses a fixed catalog.
@@ -101,7 +101,7 @@ export default function Thrift_Happens({ data }: ClothingData) {
     });
   }
 
-  function handleRemoveFromCart(cartItem: CheckoutItem) {
+  /*function handleRemoveFromCart(cartItem: CheckoutItem): void {
     setCartItems((prevCart) => {
       const existingIndex = prevCart.findIndex(
         (item) => item.id === cartItem.id,
@@ -109,7 +109,7 @@ export default function Thrift_Happens({ data }: ClothingData) {
       cartItem.quantity += prevCart.at(existingIndex)!.quantity;
       prevCart.splice(existingIndex);
       return [...prevCart];
-    });
+    });*/
 
     // Pass values and domain callbacks instead of exposing the array setter.
     // React renders fresh props after updates. ProductContainer forwards callbacks;
@@ -124,9 +124,9 @@ export default function Thrift_Happens({ data }: ClothingData) {
         />
         <CheckoutContainer
           cartData={cartItems}
-          handleRemoveFromCart={handleRemoveFromCart}
+          //handleRemoveFromCart={handleRemoveFromCart}
         />
       </div>
     );
   }
-}
+

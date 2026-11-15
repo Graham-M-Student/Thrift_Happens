@@ -1,20 +1,20 @@
 import type { CheckoutItem } from "./Thrift Happens";
 
 interface CheckoutCardProps extends CheckoutItem {
-  handleRemoveFromCart(cartItem: CheckoutItem): void;
+ // handleRemoveFromCart(cartItem: CheckoutItem): void;
 }
 
 // Displays one saved cart snapshot. The default export is imported as CartCard
 // by the list component.
 // Destructuring extracts fields from React's single props object.
 export default function CartCard({
-  id,
+  //id,
   name,
   image,
   price,
   quantity,
   total,
-  handleRemoveFromCart,
+  //handleRemoveFromCart,
 }: CheckoutCardProps) {
   return (
     <div className="CartCard">
@@ -26,7 +26,7 @@ export default function CartCard({
           the numeric price or total stored in the cart. */}
       <p>price: {price.toFixed(2)}$</p>
       <p>total: {total.toFixed(2)}$</p>
-      <button
+      {/*<button
         onClick={() => {
           handleRemoveFromCart({
             id:id,
@@ -39,7 +39,7 @@ export default function CartCard({
         }}
       >
         Remove
-      </button>
+      </button>*/}
     </div>
   );
 }
